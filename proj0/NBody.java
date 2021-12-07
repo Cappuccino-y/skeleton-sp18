@@ -6,7 +6,7 @@ public class NBody {
         return radius;
     }
     public static Planet[] readPlanets(String file_name){
-        Planet[] planets= new Planet[5];
+        Planet[] planets= new Planet[]{};
         In in = new In(file_name);
         int N = in.readInt();
         double radius = in.readDouble();
@@ -22,8 +22,7 @@ public class NBody {
         return planets;
     }
     public static void drawbackground(double radius) {
-        /** Sets up the universe so it goes from
-         * -100, -100 up to 100, 100 */
+
         StdDraw.enableDoubleBuffering();
         StdDraw.setScale(-radius, radius);
 
@@ -51,7 +50,6 @@ public class NBody {
                 Y_force = planets[j].calcNetForceExertedByY(planets);
                 planets[j].update(dt, X_force, Y_force);
                 planets[j].draw();
-                System.out.println(planets[j].xxPos);
             }
             StdDraw.show();
             StdDraw.pause(10);
