@@ -6,9 +6,9 @@ public class NBody {
         return radius;
     }
     public static Planet[] readPlanets(String file_name){
-        Planet[] planets= new Planet[]{};
         In in = new In(file_name);
         int N = in.readInt();
+        Planet[] planets= new Planet[N];
         double radius = in.readDouble();
         for (int i = 0; i<planets.length; i++) {
             double x_p = in.readDouble();
@@ -21,7 +21,7 @@ public class NBody {
         }
         return planets;
     }
-    public static void drawbackground(double radius) {
+    private static void drawbackground(double radius) {
 
         StdDraw.enableDoubleBuffering();
         StdDraw.setScale(-radius, radius);
