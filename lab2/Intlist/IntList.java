@@ -81,7 +81,11 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        A.rest=B;
+        IntList finder = A;
+        while(finder.rest!=null){
+            finder=finder.rest;
+        }
+        finder.rest=B;
         //TODO:  fill in method
         return A;
     }
@@ -100,7 +104,10 @@ public class IntList {
             pointer=pointer.rest;
             operator=operator.rest;
         }
+        operator.first= pointer.first;
         pointer=B;
+        operator.rest=new IntList();
+        operator=operator.rest;
         while (pointer.rest!=null){
             operator.first= pointer.first;
             operator.rest= new IntList(pointer.rest.first,null);
@@ -108,6 +115,7 @@ public class IntList {
             operator=operator.rest;
         }
         return C;
+
     }
 
 
@@ -245,6 +253,18 @@ public class IntList {
         }
         out.format(")");
         return out.toString();
+    }
+
+    public static void main(String[] args) {
+        IntList a = IntList.of(0, 1, 2, 3);
+        IntList b = IntList.of(0, 1, 2, 3);
+        IntList c= catenate(a,b);
+        int i=0;
+        while (i<8) {
+            System.out.println(c.first);
+            c=c.rest;
+            i=i+1;
+        }
     }
 }
 
