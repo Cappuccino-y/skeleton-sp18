@@ -81,6 +81,9 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
+        if (A==null){
+            return B;
+        }
         IntList finder = A;
         while(finder.rest!=null){
             finder=finder.rest;
@@ -95,6 +98,8 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
+        if (A==null)
+            return B;
         IntList C = new IntList();
         IntList pointer = A;
         IntList operator = C;
@@ -104,7 +109,8 @@ public class IntList {
             pointer=pointer.rest;
             operator=operator.rest;
         }
-        operator.first= pointer.first;
+        if (B==null)
+            return C;
         pointer=B;
         operator.rest=new IntList();
         operator=operator.rest;
