@@ -36,8 +36,15 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] temp = (T[]) new Object[capacity];
-        System.arraycopy(items, start, temp,0, size - start);
-        System.arraycopy(items, 0, temp,size - start, start);
+        int num;
+        if ((start+size)>items.length){
+            num=items.length-start;
+        }
+        else {
+            num=size;
+        }
+        System.arraycopy(items, start, temp, 0, num);
+        System.arraycopy(items, 0, temp, num, size-num);
         start = 0;
         items = temp;
     }
@@ -53,64 +60,66 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        for (int i = start; i < size + start; i++){
-            System.out.print(items[i% items.length]);
-            if (i < size+start-1){
+        for (int i = start; i < size + start; i++) {
+            System.out.print(items[i % items.length]);
+            if (i < size + start - 1) {
                 System.out.print(" ");
             }
         }
     }
-    public T removeFirst(){
-        if (isEmpty()){
+
+    public T removeFirst() {
+        if (isEmpty()) {
             return null;
         }
-        double ratio=(double) (size-1) / items.length;
-        if (ratio < 0.26&items.length >= 16){
-            resize(items.length/2);
+        double ratio = (double) (size - 1) / items.length;
+        if (ratio < 0.26 & items.length >= 16) {
+            resize(items.length / 2);
         }
-        T retrun_val=items[start];
-        items[start]=null;
-        start=start+1;
-        if (start>= items.length)
-            start=start% items.length;
-        size=size-1;
+        T retrun_val = items[start];
+        items[start] = null;
+        start = start + 1;
+        if (start >= items.length)
+            start = start % items.length;
+        size = size - 1;
         return retrun_val;
     }
-    public T removeLast(){
-        if (isEmpty()){
+
+    public T removeLast() {
+        if (isEmpty()) {
             return null;
         }
-        double ratio=(double) (size-1)/items.length;
-        if (ratio<0.26&items.length>=16){
-            resize(items.length/2);
+        double ratio = (double) (size - 1) / items.length;
+        if (ratio < 0.26 & items.length >= 16) {
+            resize(items.length / 2);
         }
-        int target=(start+size)% items.length-1;
-        if (target<0)
-            target=target+items.length;
-        T retrun_val=items[target];
-        items[target]=null;
-        size=size-1;
+        int target = (start + size) % items.length - 1;
+        if (target < 0)
+            target = target + items.length;
+        T retrun_val = items[target];
+        items[target] = null;
+        size = size - 1;
         return retrun_val;
     }
-    public T get(int index){
-        if (index>=size|index<0){
+
+    public T get(int index) {
+        if (index >= size | index < 0) {
             return null;
         }
-        return items[(start+index)% items.length];
+        return items[(start + index) % items.length];
     }
 
 //    public static void main(String[] args) {
-//        ArrayDeque<Integer> test= new ArrayDeque<>();
-//        int i=0;
-//        while (i<20){
-//            test.addLast(i);
-//            i=i+1;
+//        ArrayDeque<Integer> test = new ArrayDeque<>();
+//        int i = 0;
+//        while (i < 20) {
+//            test.addFirst(i);
+//            i = i + 1;
 //        }
-//        for (int a=0;a<15;a++){
+//        for (int a = 0; a < 15; a++) {
 //            test.printDeque();
 //            System.out.print("\n");
 //            test.removeLast();
 //        }
-
-
-    }
+//    }
+}
