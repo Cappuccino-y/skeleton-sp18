@@ -1,12 +1,12 @@
 public class LinkedListDeque<T> {
-    public TNode sentinel;
-    public int size;
-    public LinkedListDeque(T item){
-        sentinel = new TNode(null,sentinel,sentinel);
-        sentinel.next=new TNode(item,sentinel,sentinel);
-        sentinel.previous=sentinel.next;
-        size=1;
-    }
+    private TNode sentinel;
+    private int size;
+//    public LinkedListDeque(T item){
+//        sentinel = new TNode(null,sentinel,sentinel);
+//        sentinel.next=new TNode(item,sentinel,sentinel);
+//        sentinel.previous=sentinel.next;
+//        size=1;
+//    }
 
     public LinkedListDeque(){
         sentinel = new TNode(null,sentinel,sentinel);
