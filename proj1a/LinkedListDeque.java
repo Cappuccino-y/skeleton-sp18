@@ -95,19 +95,19 @@ public class LinkedListDeque<T> {
             return null;
         return sentinel.next.getRecursion(index);
     }
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> l= new LinkedListDeque<>();
-        l.addFirst(45);
-        l.addFirst(67);
-        l.addLast(0);
-        l.addLast(99);
-        l.printDeque();
-        l.removeLast();
-        l.printDeque();
-        System.out.print(12%7);
-
-
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> l= new LinkedListDeque<>();
+//        l.addFirst(45);
+//        l.addFirst(67);
+//        l.addLast(0);
+//        l.addLast(99);
+//        l.printDeque();
+//        l.removeLast();
+//        l.printDeque();
+//        System.out.print(12%7);
+//
+//
+//    }
 
     private class TNode {
         private T first;

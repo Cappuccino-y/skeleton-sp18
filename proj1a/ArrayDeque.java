@@ -88,13 +88,13 @@ public class ArrayDeque<Item>{
         return items[(start+index)% items.length];
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> test= new ArrayDeque<>();
-        int i=0;
-        while (i<1000000){
-            test.addLast(i);
-            i=i+1;
-        }
-        test.printDeque();
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> test= new ArrayDeque<>();
+//        int i=0;
+//        while (i<1000000){
+//            test.addLast(i);
+//            i=i+1;
+//        }
+//        test.printDeque();
     }
 }
