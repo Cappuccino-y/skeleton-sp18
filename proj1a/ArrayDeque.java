@@ -36,8 +36,8 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] temp = (T[]) new Object[capacity];
-        System.arraycopy(items, start, temp,0, items.length - start);
-        System.arraycopy(items, 0, temp,items.length - start, start);
+        System.arraycopy(items, start, temp,0, size - start);
+        System.arraycopy(items, 0, temp,size - start, start);
         start = 0;
         items = temp;
     }
@@ -106,9 +106,12 @@ public class ArrayDeque<T> {
 //            test.addLast(i);
 //            i=i+1;
 //        }
-//        test.printDeque();
-//        test.removeLast();
-//        test.printDeque();
-//        System.out.println();
-//    }
+//        for (int a=0;a<15;a++){
+//            test.printDeque();
+//            System.out.print("\n");
+//            test.removeLast();
+//        }
+
+
+    }
 }
