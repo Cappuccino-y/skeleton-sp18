@@ -3,34 +3,10 @@ public class ArrayDeque<T> {
     private int size;
     private int start = 0;
 
-    /* just for intialializing with T item
-        public ArrayDeque(T item) {
-            items = (T[]) new Object[8];
-            items[start] = item;
-            size = size + 1;
-        }
-    */
-
     public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
     }
-
-    /* just for test
-    public static void main(String[] args) {
-        ArrayDeque<Integer> test = new ArrayDeque<>();
-        int i = 0;
-        while (i < 20) {
-            test.addFirst(i);
-            i = i + 1;
-        }
-        for (int a = 0; a < 15; a++) {
-            test.printDeque();
-            System.out.print("\n");
-            test.removeLast();
-        }
-    }
-    */
 
     public void addFirst(T item) {
         if (items.length == size) {
@@ -130,3 +106,4 @@ public class ArrayDeque<T> {
     }
 
 }
+

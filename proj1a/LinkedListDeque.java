@@ -2,34 +2,13 @@ public class LinkedListDeque<T> {
     private TNode sentinel;
     private int size;
 
-    /* just for intializing with T item
-    public LinkedListDeque(T item) {
-        sentinel = new TNode(null, sentinel, sentinel);
-        sentinel.next = new TNode(item, sentinel, sentinel);
-        sentinel.previous = sentinel.next;
-        size = 1;
-    }
-    */
-
     public LinkedListDeque() {
-        sentinel = new TNode(null, sentinel, sentinel);
+        sentinel = new TNode(null, null, null);
+        sentinel.next = sentinel;
+        sentinel.previous = sentinel;
         size = 0;
     }
 
-    /* just for test
-        public static void main(String[] args) {
-            LinkedListDeque<Integer> l = new LinkedListDeque<>();
-            l.addFirst(45);
-            l.addFirst(67);
-            l.addLast(0);
-            l.addLast(99);
-            l.printDeque();
-            l.printDeque();
-            l.removeLast();
-            l.printDeque();
-            System.out.print(12 % 7);
-        }
-    */
     public boolean isEmpty() {
         if (size == 0) {
             return true;
@@ -42,24 +21,12 @@ public class LinkedListDeque<T> {
     }
 
     public void addFirst(T item) {
-        if (isEmpty()) {
-            sentinel.next = new TNode(item, sentinel, sentinel);
-            sentinel.previous = sentinel.next;
-            size = size + 1;
-            return;
-        }
         sentinel.next = new TNode(item, sentinel.next, sentinel);
         sentinel.next.next.previous = sentinel.next;
         size = size + 1;
     }
 
     public void addLast(T item) {
-        if (isEmpty()) {
-            sentinel.next = new TNode(item, sentinel, sentinel);
-            sentinel.previous = sentinel.next;
-            size = size + 1;
-            return;
-        }
         sentinel.previous = new TNode(item, sentinel, sentinel.previous);
         sentinel.previous.previous.next = sentinel.previous;
         size = size + 1;
@@ -135,3 +102,4 @@ public class LinkedListDeque<T> {
         }
     }
 }
+
