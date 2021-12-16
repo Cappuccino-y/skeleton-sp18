@@ -10,7 +10,17 @@ public class TestOffByOne {
     public void testEqualChars() {
         char c = 's';
         char d = ' ';
-        assertTrue(offByOne.equalChars('%', '&'));
+        assertFalse(offByOne.equalChars(c, d));
+
+
+        char we = 'A';
+        char sd = 'B';
+        assertTrue(offByOne.equalChars(we, sd));
+
+
+        char we2 = 'A';
+        char sd2 = 'b';
+        assertFalse(offByOne.equalChars(we2, sd2));
     }
 
 
