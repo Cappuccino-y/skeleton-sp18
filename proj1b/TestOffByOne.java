@@ -21,6 +21,10 @@ public class TestOffByOne {
         char we2 = 'A';
         char sd2 = 'b';
         assertFalse(offByOne.equalChars(we2, sd2));
+
+        char we3 = ' ';
+        char sd3 = '2';
+        assertFalse(offByOne.equalChars(we3, sd3));
     }
 
 
